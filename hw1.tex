@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\begin{document}
+
+\title{MATH520 Homework 1}
+\author{Fernando}
+\date{\today}
+\maketitle
+
+\section*{Exercise 1.5}
+Suppose that you are shown four cards, laid out in a row. Each card has a letter on one side and a number on the other. On the visible side of the cards are printed the symbols
+
+\begin{center}
+S \quad 8 \quad 3 \quad A
+\end{center}
+
+Determine which cards should you turn over to decide if the following rule is true or false: "If there is a vowel on one side of the card, then there is an even number on the other side."
+
+\textbf{Solution:}
+
+If a card has a vowel we should turn it over to check that the other side has
+an even number. Consonants are not mentioned in the rule so what is on the
+other side of a consonant is irrelevant. Odd numbers should be turned over to
+make sure there is not a vowel on the other side and even numbers are OK no
+matter what is on the other side so no need to turn them over.
+
+\textbf{Answer:} 3 and A.
+\section*{Exercise 2.10}
+Use exercise 2.9 to show that the norm $||\cdot||$ is a uniformly continuous
+function.
+
+\textbf{Solution:}
+
+Let $\varepsilon >0$, then take $\delta = \varepsilon$, using exercise 2.9 we
+get that
+\[
+	|||x||-||y|||\leq ||x-y||,
+\]
+then $||x-y||<\varepsilon \implies |||x||-||y|||<\varepsilon$. Notice that
+$\delta$ depends only on $\varepsilon$, it doesn't depend on $x$ nor $y$, so
+$||\cdot||$ is not only continuous but uniformly continuous.
+\section*{Exercise 3.6}
+Let $\lambda_1,\dots,\lambda_n$ be the eigenvalues of the matrix $A\in
+\mathbb{R}^{n\times n}$. Show that the eigenvalues of the matrix $I_n -A$ are
+$1-\lambda_1,\dots,1-\lambda_n$.
+
+\textbf{Solution:}
+
+Let $v_i$ be an eigenvector associated with the eigenvalue $\lambda_i$, then
+\[
+	(I_n-A)v_i=v_i-Av_i=v_i-\lambda_iv_i=(1-\lambda_i)v_i.
+\]
+So the eigenvalues of $I_n-A$ are indeed $(1-\lambda_i)$.
+\section*{Exercise 3.17}
+Consider the matrix
+\[ Q=
+\begin{bmatrix}
+0 & 1 & 1\\	
+1 & 0 & 1\\
+1 & 1 & 0
+\end{bmatrix}.
+\]
+a. Is the matrix positive definite, negative definite, or indefinite?
+
+\textbf{Solution 1:}
+
+Explicitly computing the eigenvalues using Sarrus' rule to find the characteristic
+polynomial $(-\lambda^3+3\lambda+2)$ and then finding its roots gives us:\\
+$\lambda_1=-1,\lambda_2=-1,\lambda_3=2$. So it is indefinite.
+
+\textbf{Solution 2:}
+Use the thing in the book THIS LOOKS INTERESTING TODO.!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+\section*{Exercise 5.7}
+Suppose that $f(x)=o(g(x))$. Show that for any given $\varepsilon >0$, there
+exists $\delta>0$ such that if $||x||< \delta$, then $||f(x)||<\varepsilon |g(x)|$.
+
+\textbf{Solution:}
+
+By definition
+\[
+	\lim_{x\to 0,x\in\Omega} \frac{||f(x)||}{|g(x)|}=0;
+\]
+which means that for any $\varepsilon >0$ there is a $\delta>0$, such that if
+$||x||<\delta$ and $x\in\Omega$ then
+\[
+	\frac{||f(x)||}{|g(x)|}<\varepsilon,
+\]
+which is equivalent to
+\[
+	||f(x)||<\varepsilon|g(x)|,
+\]
+so we can take the same $\delta$ given by the limit.
+\section*{Exercise 5.10}
+Write down the Taylor series expansion of the following functions about the
+given points $X_0$. Neglect terms of order three or higher.
+
+a. $f(x)=x_1e^{-x_2}+x_2+1$, $x_0=[1,0]$.
+
+\textbf{Solution:}
+
+TODO
+
+b. $f(x)=x_1^4+2x_1^2x_2^2 +x_2^4$, $x_0=[1,1]^T$.
+
+\textbf{Solution:}
+
+TODO
+
+c. $f(x)=e^{x_1-x_2}+e^{x_1+x_2}+x_1+x_2+1$, $x_0=[1,0]^T$.
+
+\textbf{Solution:}
+
+TODO
+\end{document}
