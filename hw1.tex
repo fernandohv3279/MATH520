@@ -77,25 +77,35 @@ $\Delta_3=\det(Q)=2$.
 
 so by Sylvester's criterion this matrix is indefinite.
 \section*{Exercise 5.7}
-Suppose that $f(x)=o(g(x))$. Show that for any given $\varepsilon >0$, there
-exists $\delta>0$ such that if $||x||< \delta$, then $||f(x)||<\varepsilon |g(x)|$.
+Let $x(t)=[e^t+t^3,t^2,t+1]^T$, $t\in \mathbb{R}$, and $f(x)=x_1^3x_2x_3^2 +
+x_1x_2 + x_3$,\\
+$x=[x_1,x_2,x_3]^T\in \mathbb{R}^3$.\\
+Find $\frac{d}{dt}f(x(t))$ in terms of $t$.
 
 \textbf{Solution:}
 
-By definition
+According to the chain rule the derivative is
 \[
-	\lim_{x\to 0,x\in\Omega} \frac{||f(x)||}{|g(x)|}=0;
+\frac{d}{dt}f(x(t))=\nabla f(x(t))\cdot x'(t),
 \]
-which means that for any $\varepsilon >0$ there is a $\delta>0$, such that if
-$||x||<\delta$ and $x\in\Omega$ then
-\[
-	\frac{||f(x)||}{|g(x)|}<\varepsilon,
-\]
-which is equivalent to
-\[
-	||f(x)||<\varepsilon|g(x)|,
-\]
-so we can take the same $\delta$ given by the limit.
+where $x'(t)$ is a vector obtained by differentiating $x(t)$ entry-wise.\\
+So the result is:
+\begin{multline*}
+\begin{bmatrix}
+	3x_1^2x_2x_3^2+x_2\\
+	x_1^3x_3^2 + x_1\\
+	2x_1^3x_2x_3+1\\
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+	e^t+3t^2\\
+	2t\\
+	1\\
+\end{bmatrix}
+=
+(e^t+3t^2)(3x_1^2x_2x_3^2+x_2)+2t(x_1^3x_3^2+x_1) \\
++(2x_1^3x_2x_3+1).
+\end{multline*}
 \section*{Exercise 5.10}
 Write down the Taylor series expansion of the following functions about the
 given points $X_0$. Neglect terms of order three or higher.
