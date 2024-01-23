@@ -2,6 +2,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
+\newcommand{\bld}[1]{\boldsymbol{#1}}
 
 \begin{document}
 
@@ -29,19 +30,32 @@ matter what is on the other side so no need to turn them over.
 
 \textbf{Answer:} 3 and A.
 \section*{Exercise 2.10}
-Use exercise 2.9 to show that the norm $||\cdot||$ is a uniformly continuous
-function.
+Show that for any two vectors $\boldsymbol{x},\boldsymbol{y}\in\mathbb{R}^n$,
+$|||\boldsymbol{x}||-||\boldsymbol{y}||| \leq
+||\boldsymbol{x}-\boldsymbol{y}||$.
 
 \textbf{Solution:}
 
-Let $\varepsilon >0$, then take $\delta = \varepsilon$, using exercise 2.9 we
-get that
 \[
-	|||x||-||y|||\leq ||x-y||,
+||\bld{x}||=||\bld{x}-\bld{y}+\bld{y}|| \leq ||\bld{x}-\bld{y}|| + ||\bld{y}||
 \]
-then $||x-y||<\varepsilon \implies |||x||-||y|||<\varepsilon$. Notice that
-$\delta$ depends only on $\varepsilon$, it doesn't depend on $x$ nor $y$, so
-$||\cdot||$ is not only continuous but uniformly continuous.
+then,
+\begin{equation}
+||\bld{x}||-||\bld{y}|| \leq ||\bld{x}-\bld{y}||.
+\end{equation}
+Notice that since $\bld{x}$ and  $\bld{y}$ are arbitrary vectors by switching
+them we also get:
+\begin{equation}
+||\bld{y}||-||\bld{x}|| \leq ||\bld{y}-\bld{x}||=||\bld{x}-\bld{y}||.
+\end{equation}
+Multiplying (2) by -1 we get:
+\begin{equation}
+||\bld{x}||-||\bld{y}|| \geq -||\bld{x}-\bld{y}||.
+\end{equation}
+Together (1) and (3) are equivalent to:
+\[
+	|||\bld{x}||-||\bld{y}|||\leq ||\bld{x}-\bld{y}||.
+\]
 \section*{Exercise 3.6}
 Let $\lambda_1,\dots,\lambda_n$ be the eigenvalues of the matrix $A\in
 \mathbb{R}^{n\times n}$. Show that the eigenvalues of the matrix $I_n -A$ are
@@ -89,13 +103,31 @@ According to the chain rule the derivative is
 \[
 \frac{d}{dt}f(x(t))=\nabla f(x(t))\cdot x'(t),
 \]
-where $x'(t)$ is a vector obtained by differentiating $x(t)$ entry-wise.\\
-So the result is:
-\begin{multline*}
+where $x'(t)$ is a vector obtained by differentiating $x(t)$ entry-wise.
+
+$\nabla f$ is:
+\[
 \begin{bmatrix}
 	3x_1^2x_2x_3^2+x_2\\
 	x_1^3x_3^2 + x_1\\
 	2x_1^3x_2x_3+1\\
+\end{bmatrix}.
+\]
+Then $\nabla f(x(t))$ is:
+\[
+\begin{bmatrix}
+	3(e^t+t^3)^2(t^2)(t+1)^2+(t^2)\\
+	(e^t+t^3)^3(t+1)^2 + (e^t+t^3)\\
+	2(e^t+t^3)^3(t^2)(t+1)+1\\
+\end{bmatrix}.
+\]
+
+So the result is:
+\begin{multline*}
+\begin{bmatrix}
+	3(e^t+t^3)^2(t^2)(t+1)^2+(t^2)\\
+	(e^t+t^3)^3(t+1)^2 + (e^t+t^3)\\
+	2(e^t+t^3)^3(t^2)(t+1)+1\\
 \end{bmatrix}
 \cdot
 \begin{bmatrix}
@@ -103,9 +135,10 @@ So the result is:
 	2t\\
 	1\\
 \end{bmatrix}
-=
-(e^t+3t^2)(3x_1^2x_2x_3^2+x_2)+2t(x_1^3x_3^2+x_1) \\
-+(2x_1^3x_2x_3+1).
+=\\
+(e^t+3t^2)(3(e^t+t^3)^2t^2(t+1)^2 + t^2)\\
++2t((e^t+t^3)^3(t+1)^2 + (e^t+t^3))\\
++2(e^t+t^3)^3(t^2)(t+1)+1.
 \end{multline*}
 \section*{Exercise 5.10}
 Let
@@ -125,7 +158,7 @@ We have to plot $x_1^2-x_2^2=12$ and $2x_1x_2=16$, then for the condition
 $\boldsymbol{f}(\boldsymbol{x})=[12,16]^T$ to be true we need to find the
 points at the intersection of the 2 curves.
 
-\begin{figure}[h]
+\begin{figure}[ht]
 	\caption{Level sets of $f_1$(dotted, red) and $f_2$(continuous, blue)}
 	\includegraphics[width=\textwidth]{sketch-hw-1.png}
 \end{figure}
