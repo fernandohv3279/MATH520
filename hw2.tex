@@ -12,13 +12,16 @@
 \maketitle
 
 \section*{Exercise 6.3}
-Show that if $x^*$ is a global minimizer of $f$ over $\Omega$, and
-$x^*\in\Omega'\subset \Omega$, then $x^*$ is a global minimizer of $f$ over
+Show that if $\bld{x}^*$ is a global minimizer of $f$ over $\Omega$, and
+$\bld{x}^*\in\Omega'\subset \Omega$, then $\bld{x}^*$ is a global minimizer of $f$ over
 $\Omega'$.
 
 \textbf{Solution:}
 
-TODO
+By definition: $f(\bld{x}^*)\leq f(\bld{x})$ for all $\bld{x}\in \Omega$; in
+particular, it is true for all $\bld{x}\in\Omega'$ (because $\Omega'\subset
+\Omega$). Then again by definition $\bld{x}^*$ is a global minimizer of $f$
+over $\Omega'$.
 \section*{Exercise 6.8}
 Consider the following function $f:\mathbb{R}^2 \to \mathbb{R}$:
 \[
@@ -61,6 +64,34 @@ $\tan(\theta)=(\tan(\theta_2)-\tan(\theta_1))/(1+\tan(\theta_2)\tan(\theta_1))$.
 
 TODO
 \section*{Exercise 6.29}
+Line fitting. Let $[x_1,y_1]^T,\dots,[x_n,y_n]^T$, $n\geq 2$, be points on the
+$\mathbb{R}^2$ plane (each $x_i,y_i\in \mathbb{R}$). We wish to find the
+straight line of the "best fit" through these points ("best" in the sense that
+the average squared error is minimized); that is, we wish to find $a,b\in
+\mathbb{R}$ to minimize
+\[
+	f(a,b)=\frac{1}{n} \sum_{i=1}^n(ax_i+b-y_i)^2.
+\]
+a. Let
+\begin{align*}
+	\overline{X}=\frac{1}{n}\sum_{i=1}^n x_i.\\
+	\overline{Y}=\frac{1}{n}\sum_{i=1}^n y_i.\\
+	\overline{X^2}=\frac{1}{n}\sum_{i=1}^n x_i^2.\\
+	\overline{Y^2}=\frac{1}{n}\sum_{i=1}^n y_i^2.\\
+	\overline{XY}=\frac{1}{n}\sum_{i=1}^n x_iy_i.\\
+\end{align*}
+Show that $f(a,b)$ can be written in the form $\bld{z}^TQ\bld{z} -
+2\bld{c}^T\bld{z} + d$, where $\bld{z}=[a,b]^T$, $Q=Q^T\in \mathbb{R}^{2\times
+2}$, $\bld{c}\in \mathbb{R}^2$ and $d\in\mathbb{R}$, and find expressions for
+$\bld{Q},\bld{c}$, and $d$ in terms of $\overline{X}, \overline{Y},
+\overline{X^2}, \overline{Y^2}$, and $\overline{XY}$.\\
+b. Assume that the $x_i, i=1,\dots,n$, are not all equal. Find the parameters
+$a^*$ and $b^*$ for the line of best fit in terms of
+$\overline{X},\overline{Y},\overline{X^2},\overline{Y^2}$ and $\overline{XY}$.
+Show that the point $[a^*,b^*]^T$ is the only local minimizer of $f$.\\
+c. Show that if $a^*$ and $b^*$ are the parameters of the line of best fit,
+then $\overline{Y}=a^*\overline{X}+b^*$ (and hence once we have computed $a^*$,
+we can compute $b^*$ using the formula $b^*=\overline{Y}-a^*\overline{X}$).
 
 \textbf{Solution:}
 
