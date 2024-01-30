@@ -107,8 +107,6 @@ An art collector stands at a distance of $x$ feet from the wall, there a piece
 of art (picture) of height $a$ feet is hung, $b$ feet above his eyes, as shown
 in figure $\ref{fig619}$. Find the distance from the wall for which the angle $\theta$
 subtended by the eye to the picture is maximized.\\
-(2) If $\theta = \theta_2 - \theta_1$, then
-$\tan(\theta)=(\tan(\theta_2)-\tan(\theta_1))/(1+\tan(\theta_2)\tan(\theta_1))$.
 \begin{figure}[ht]
 	\center
 	\caption{Figure for exercise 6.19}
@@ -118,7 +116,22 @@ $\tan(\theta)=(\tan(\theta_2)-\tan(\theta_1))/(1+\tan(\theta_2)\tan(\theta_1))$.
 
 \textbf{Solution:}
 
-TODO
+Let $\theta_1$ be the angle on the eye vertex of the biggest triangle and
+$\theta_2$ be the angle on the eye vertex of the lower triangle. Then
+$\theta=\theta_1 - \theta_2$. As suggested by the book we can optimize
+$\tan(\theta)$ instead of $\theta$ because tangent is increasing and
+$\theta\in[0,\pi/2]$ (because of the physical limitations of the problem).
+Using the second suggestion from the book we have to optimize
+\[
+	(\tan(\theta_1) - \tan(\theta_2))/(1+\tan(\theta_1)\tan(\theta_2))=\frac{a}{x+b(a+b)/x}.
+\]
+Taking the derivative we get
+\[
+\frac{ab(a+b)-ax^2}{(b(a+b)+x^2)^2}
+\]
+So the candidate points are $x=\sqrt{b(a+b)}$. Notice that the negative is not
+considered because it doesn't make sense. Also it is a maximum because we can
+see that physically the problem creates a function that is concave.
 \section*{Exercise 6.29}
 Line fitting. Let $[x_1,y_1]^T,\dots,[x_n,y_n]^T$, $n\geq 2$, be points on the
 $\mathbb{R}^2$ plane (each $x_i,y_i\in \mathbb{R}$). We wish to find the
