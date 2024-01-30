@@ -62,8 +62,46 @@ $D(\bld{x}^TA\bld{x})=\bld{x}^T(A+A^T)$ (when $A$ is squared) we get
 \end{bmatrix}\bld{x} + \begin{bmatrix}
 3\\
 5
-\end{bmatrix}
+\end{bmatrix}\\
+&=[2x_1+6x_2+3,6x_1+14x_2+5]^T.
 \end{align*}
+Then at $[1,1]^T$ we get
+\[
+\nabla f([1,1]^T)=[11,25]^T.
+\]
+
+As for the Hessian, using the previuos calculation we get:
+\[
+\begin{bmatrix}
+\partial_{x_1}\partial_{x_1}f & \partial_{x_2}\partial_{x_1}f\\
+\partial_{x_1}\partial_{x_2}f & \partial_{x_2}\partial_{x_2}f
+\end{bmatrix}
+=
+\begin{bmatrix}
+2 & 6\\
+6 & 14
+\end{bmatrix}.
+\]
+This is the Hessian at any point, in particular at $[1,1]^T$.
+
+Part b. Because this function is smooth we can compute the directional
+derivative as
+\[
+	\frac{[11,25]^T\cdot
+	[11,25]^T}{||[11,25]^T||}=||[11,25]^T||=\sqrt{11^2+25^2}.
+\]
+
+Part c. For this we need to solve the system
+\[
+	\begin{cases}
+	2x_1+6x_2+3=0\\
+	6x_1+14x_2+5=0
+	\end{cases}
+\]
+Which gives us $x_1=3/2$ and $x_2=-1$ so the point $[3/2,-1]^T$ satisfies the
+FONC for $f$. Using Sylvester's criterion we get that the matrix is indefinite
+($\Delta_1=2, \Delta_2=-8$)
+so it does not satisfy the SONC.
 \section*{Exercise 6.19}
 An art collector stands at a distance of $x$ feet from the wall, there a piece
 of art (picture) of height $a$ feet is hung, $b$ feet above his eyes, as shown
