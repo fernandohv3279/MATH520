@@ -45,7 +45,25 @@ point satisfy the SONC (for a minimizer)?
 
 \textbf{Solution:}
 
-TODO
+Part a. Let
+\[
+	A = \begin{bmatrix}
+		1 & 2\\
+		4 & 7
+	\end{bmatrix},
+\]
+then using the identity (found in the book)
+$D(\bld{x}^TA\bld{x})=\bld{x}^T(A+A^T)$ (when $A$ is squared) we get
+\begin{align*}
+\nabla f(\bld{x}) &= \left[\bld{x}^T(A+A^T)\right]^T + [3,5]^T\\
+&= \begin{bmatrix}
+	2 & 6\\
+	6 & 14
+\end{bmatrix}\bld{x} + \begin{bmatrix}
+3\\
+5
+\end{bmatrix}
+\end{align*}
 \section*{Exercise 6.19}
 An art collector stands at a distance of $x$ feet from the wall, there a piece
 of art (picture) of height $a$ feet is hung, $b$ feet above his eyes, as shown
