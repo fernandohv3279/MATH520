@@ -164,5 +164,63 @@ we can compute $b^*$ using the formula $b^*=\overline{Y}-a^*\overline{X}$).
 
 \textbf{Solution:}
 
-TODO
+a. We begin by noticing that
+\[
+(ax_i+b-y_i)^2=a^2x_i^2+b^2+y_i^2+2bax_i-2ax_iy_i-2by_i.
+\]
+Taking a sum over all $i$ and multiplying by $\frac{1}{n}$ we get that
+\[
+f(a,b) = a^2\overline{X^2}+ \overline{Y^2}-
+2b\overline{Y}+2ab\overline{X} - 2a\overline{XY} + b^2.
+\]
+If we compute the quadratic form (remembering that $Q$ is symmetric) we get
+\[
+\bld{z}^TQ\bld{z} - 2\bld{c}^T\bld{z} + d =
+a^2q_{11} + 2abq_{12}+b^2q_{22}-2ac_1 -2bc_2 +d
+\]
+Then by comparison we can set
+\begin{align*}
+Q&=\begin{bmatrix}
+	\overline{X^2} & \overline{X}\\
+	\overline{X} & 1
+\end{bmatrix}\\
+\bld{c}&=[\overline{XY},\overline{Y}]^T\\
+d&=\overline{Y^2}
+\end{align*}
+
+b. First
+\[
+	\nabla f(z)^T=2z^TQ-2\bld{c}^T.
+\]
+Setting this equal to 0 we obtain:
+\[
+	z^TQ=\bld{c}^T,
+\]
+so
+\[
+	(z^*)^T=\bld{c}^TQ^{-1},
+\]
+or equivalently (remembering that $(A^{-1})^T=(A^T)^{-1}$)
+\[
+	z^*=Q^{-1}\bld{c}.
+\]
+
+To verify that this is a minimizer we compute
+\[
+	D^2f(z)=2Q
+	=
+	2\begin{bmatrix}
+		\overline{X^2} & \overline{X}\\
+		\overline{X} & 1
+	\end{bmatrix}
+\]
+It is enough to prove that this matrix is positive definite.
+Using Sylvester's criterion we get $\Delta_1=\overline{X^2}>0$ ($x_i$'s are not
+equal so at most one is 0, we are assuming $i>1$). Then
+$\Delta_2=\overline{X^2}-\overline{X}^2$, which according to the book is
+$(1/n)\sum_{i=1}^n(x_i-\overline{X})^2$, so it is a strictly positive number
+because again all the $x_i$'s are different, Hence $\Delta_2>0$ and by
+Sylvester's criterion the matrix is positive definite.
+
+c.
 \end{document}
