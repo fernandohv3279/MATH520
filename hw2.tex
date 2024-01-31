@@ -193,16 +193,16 @@ b. First
 	\nabla f(z)^T=2z^TQ-2\bld{c}^T.
 \]
 Setting this equal to 0 we obtain:
-\[
-	z^TQ=\bld{c}^T,
-\]
+\begin{equation}\label{z-star}
+	(z^*)^TQ=\bld{c}^T,
+\end{equation}
 so
 \[
 	(z^*)^T=\bld{c}^TQ^{-1},
 \]
 or equivalently (remembering that $(A^{-1})^T=(A^T)^{-1}$)
 \[
-	z^*=Q^{-1}\bld{c}.
+z^*=Q^{-1}\bld{c}.
 \]
 
 To verify that this is a minimizer we compute
@@ -220,7 +220,21 @@ equal so at most one is 0, we are assuming $i>1$). Then
 $\Delta_2=\overline{X^2}-\overline{X}^2$, which according to the book is
 $(1/n)\sum_{i=1}^n(x_i-\overline{X})^2$, so it is a strictly positive number
 because again all the $x_i$'s are different, Hence $\Delta_2>0$ and by
-Sylvester's criterion the matrix is positive definite.
+Sylvester's criterion the matrix is positive definite. Notice that the point is
+unique because there is only one point satisfying the FONC.
 
-c.
+c. For this part we can use (\ref{z-star}), which says:
+\[
+[a^*,b^*]
+\begin{bmatrix}
+	\overline{X^2} & \overline{X}\\
+	\overline{X} & 1
+\end{bmatrix}
+=
+[\overline{XY},\overline{Y}].
+\]
+If we focus on the second component this yields the desired result, namely
+\[
+	\overline{Y}=a^*\overline{X}+b^*.
+\]
 \end{document}
