@@ -23,6 +23,19 @@ only if $\bld{x}^{(0)}$ is chosen such that
 $\bld{g}^{(0)}=\bld{Q}\bld{x}^{(0)}=\bld{Q}\bld{x}^{(0)}-\bld{b}$ is an
 eigenvector of $\bld{Q}$.
 \subsection*{Solution}
+First we note that $\nabla f(\bld{x})=\bld{Q}\bld{x}-\bld{b}$. And thus
+\[
+\bld{x}^{(1)}=\bld{x}^{(0)}-\alpha_0\nabla
+f(\bld{x}^{(0)})=\bld{x}^{(0)}-\alpha_0(\bld{Q}\bld{x}^{(0)}-\bld{b}),
+\]
+Where $\alpha_0\neq 0$ because $\bld{x}^{(0)}\neq \bld{Q}^{-1}\bld{b}$.
+Then
+\begin{align*}
+	\bld{x}^{(1)}&=\bld{Q}^{-1}\bld{b}\\
+	\bld{x}^{(0)}-\alpha_0(\bld{Q}\bld{x}^{(0)}-\bld{b})&=\bld{Q}^{-1}\bld{b}\\
+	\bld{Q}(\bld{x}^{(0)}-\alpha_0(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\bld{b}\\
+	\bld{Q}(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\frac{1}{\alpha_0}(\bld{Q}\bld{x}^{(0)}-\bld{b}).
+\end{align*}
 \section*{Exercise 8.24}
 Given $f:\mathbb{R}^n\to \mathbb{R}$, consider the general iterative algorithm
 \[
