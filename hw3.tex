@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\newcommand{\bld}[1]{\boldsymbol{#1}}
+
+\begin{document}
+
+\title{MATH520 Homework 3}
+\author{Fernando}
+\date{\today}
+\maketitle
+
+\section*{Exercise 8.18}
+Let $f:\mathbb{R}^n\to\mathbb{R}$ be given by
+$f(x)=\frac{1}{2}\bld{x}^T\bld{Q}\bld{x}-\bld{x}^Tb$, where
+$\bld{b}\in\mathbb{R}^n$ and $\bld{Q}$ is a real symmetric positive definite
+$n\times n$ matrix. Suppose that we apply the steepest descent method to this
+function, with $\bld{x}^{(0)}\neq \bld{Q}^{-1}\bld{b}$. Show that the method
+converges in one step, that is, $\bld{x}^{(1)}=\bld{Q}^{-1}\bld{b}$, if and
+only if $\bld{x}^{(0)}$ is chosen such that
+$\bld{g}^{(0)}=\bld{Q}\bld{x}^{(0)}=\bld{Q}\bld{x}^{(0)}-\bld{b}$ is an
+eigenvector of $\bld{Q}$.
+\section*{Exercise 8.24}
+Given $f:\mathbb{R}^n\to \mathbb{R}$, consider the general iterative algorithm
+\[
+	\bld{x}^{(k+1)}=\bld{x}^{(k)}+\alpha_k\bld{d}^{(k)},
+\]
+where $\bld{d}^{(1)},\bld{d}^{(2)},\dots$ are given vectors in $\mathbb{R}^n$
+and $\alpha_k$ is chosen to minimize $f(\bld{x}^{(k)}+\alpha \bld{d}^{(k)})$;
+that is,
+\[
+	\alpha_k = \arg \min f(\bld{x}^{(k)}+\alpha \bld{d}^{(k)}).
+\]
+Show that for each $k$, the vector $\bld{x}^{(k+1)}-\bld{x}^{(k)}$ is
+orthogonal to $\nabla f(\bld{x}^{(k+1)})$ (assuming that the gradient exists).
+\section*{Exercise 9.1}
+Let $f:\mathbb{R} \to \mathbb{R}$ be given by $f(x) = (x-x_0)^4$, where $x_0\in \mathbb{R}$ is constant. Suppose that we apply Newton's method to the problem of minimizing $f$, with iterates $x^{(0)},x^{(1)},x^{(2)},\dots$
+\begin{enumerate}[label=\alph*.]
+\item Write down the update equation for Newton's method applied to the
+problem.
+\item Let $y^{(k)}=|x^{(k)}-x_0|$, where $x^{(k)}$ is the $k$th iterate in
+	Newton's method. Show that the sequence $\{y^{(k)}\}$ satisfies
+	$y^{(k+1)}=\frac{2}{3}y^{(k)}$.
+\item Show that $x^{(k)}\to x_0$ for any initial guess $x^{(0)}$.
+\item Show that the order of convergence of the sequence $\{x^{(k)}\}$ in part
+	b is 1.
+\item Theorem 9.1 states that under certain conditions, the order of
+	convergence of Newton's method is at least 2. Why does that theorem not
+	hold in this particular problem?
+\end{enumerate}
+\section*{Exercise 9.4}
+Consider Rosenbrock's function: $f(\bld{x})=100(x_2-x_1^2)^2+(1+x_1)^2$, where
+$\bld{x}=[x_1,x_2]^T$. This function is also known as the banana function because of the shape of its level sets.
+\begin{enumerate}[label=\alph*.]
+\item Prove that $[1,1]^T$ is the unique global minimizer of $f$ over
+	$\mathbb{R}^2$.
+\item With a starting point of $[0,0]^T$, apply two iterations of Newton's
+	method (with unit step size).
+\item Repeat part b using a gradient algorithm with a fixed step size of
+	$\alpha_k=0.05$ at each iteration.
+\end{enumerate}
+\end{document}
