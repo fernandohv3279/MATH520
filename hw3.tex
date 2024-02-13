@@ -23,6 +23,7 @@ only if $\bld{x}^{(0)}$ is chosen such that
 $\bld{g}^{(0)}=\bld{Q}\bld{x}^{(0)}=\bld{Q}\bld{x}^{(0)}-\bld{b}$ is an
 eigenvector of $\bld{Q}$.
 \subsection*{Solution}
+TODO: CHECK HYPOTHESIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 First we note that $\nabla f(\bld{x})=\bld{Q}\bld{x}-\bld{b}$. And thus
 \[
 \bld{x}^{(1)}=\bld{x}^{(0)}-\alpha_0\nabla
@@ -50,6 +51,21 @@ that is,
 Show that for each $k$, the vector $\bld{x}^{(k+1)}-\bld{x}^{(k)}$ is
 orthogonal to $\nabla f(\bld{x}^{(k+1)})$ (assuming that the gradient exists).
 \subsection*{Solution}
+Let us define the function
+\[
+	h(\alpha)=f(\bld{x}^{(k)}+\alpha\bld{d}^{(k)})
+\]
+then
+\[
+	h'(\alpha)=\nabla f(x^{(k)}+\alpha \bld{d}^{(k)}) \cdot \bld{d}^{(k)}.
+\]
+By definition $\alpha_k$ satisfies $h'(\alpha_k)=0$ (FONC) so
+\[
+	0=h'(\alpha_k)=\nabla f(\bld{x}^{(k)}+\alpha_k \bld{d}^{(k)}) \cdot
+	\bld{d}^{(k)} = \nabla f(\bld{x}^{(k+1)}) \cdot
+	(\bld{x}^{(k+1)}-\bld{x}^{(k)})
+\]
+Which is what we wanted to prove.
 \section*{Exercise 9.1}
 Let $f:\mathbb{R} \to \mathbb{R}$ be given by $f(x) = (x-x_0)^4$, where $x_0\in \mathbb{R}$ is constant. Suppose that we apply Newton's method to the problem of minimizing $f$, with iterates $x^{(0)},x^{(1)},x^{(2)},\dots$
 \begin{enumerate}[label=\alph*.]
