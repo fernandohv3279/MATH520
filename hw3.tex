@@ -143,7 +143,7 @@ In this case
 and we can se that the only point that satisfies $\nabla f=0$ is $[1,1]^T$.
 Also we have:
 \[
-	F(x)=\begin{bmatrix}
+	\bld{F}(x)=\begin{bmatrix}
 		-400x_2 + 1200x_1^2 + 2 & -400x_1 \\
 		-400x_1 & 200
 	\end{bmatrix}
@@ -151,5 +151,31 @@ Also we have:
 and then the matrix $F([1,1]^T)$ is positive definite (I used WolframAlpha to
 compute the eigenvalues) so $[1,1]^T$ is a unique minimizer.
 \subsection*{Solution b}
+\[
+	\bld{x}^{(1)}=[0,0]^T - \frac{1}{200}
+	\begin{bmatrix}
+		100 & 0 \\
+		0 & 1
+	\end{bmatrix}
+	\begin{bmatrix}
+		-2\\
+		0
+	\end{bmatrix}
+	=
+	[1,0]^T
+\]
+\[
+	\bld{x}^{(2)}=[1,0]^T - \frac{1}{40200}
+	\begin{bmatrix}
+		100 & 200 \\
+		200 & 601
+	\end{bmatrix}
+	\begin{bmatrix}
+		400\\
+		-200
+	\end{bmatrix}
+	=
+	[1,1]^T.
+\]
 \subsection*{Solution c}
 \end{document}
