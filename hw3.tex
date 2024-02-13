@@ -105,8 +105,24 @@ so
 	=\left|\frac{2x^{(k)}-2x_0}{3}\right|=\frac{2}{3}y^{(k)}.
 \]
 \subsection*{Solution c}
+This is equivalent to proving that $y^{(k)}\to 0$. From b we see that an
+explicit formula for $y^{(k)}$ is $y^{(k)}=\left(\frac{2}{3}\right)^ky^{(0)}$.
+Taking the limit as $k\to 0$ we get the result. Notice that the value of
+$y^{(0)}$ is irrelevant.
 \subsection*{Solution d}
+We notice that
+\begin{multline*}
+	\lim_{k\to \infty} \frac{|x^{(k+1)}-x_0|}{|x^{(k)}-x_0|^p} = \lim_{k\to
+	\infty}\frac{y^{(k+1)}}{\left(y^{(k)}\right)^p}=
+\frac{2}{3}\lim_{k\to\infty}\frac{y^{(k)}}{(y^{(k)})^p}\\
+= \frac{2}{3}\lim_{k\to\infty}(y^{(k)})^{1-p} =
+\frac{2}{3}(y^{(0)})^{1-p}\lim_{k\to\infty}\left(\left(\frac{2}{3}\right)^{(1-p)}\right)^k.
+\end{multline*}
+Then we see that the biggest value $p$ can take is 1 because any $p$ bigger
+than that would cause the limit to become infinite. With $p=1$ the limit is 1.
 \subsection*{Solution e}
+In this case $F(x^*)=0$ so $F(x^*)$ is not invertible and the theorem doesn't
+hold.
 \section*{Exercise 9.4}
 Consider Rosenbrock's function: $f(\bld{x})=100(x_2-x_1^2)^2+(1+x_1)^2$, where
 $\bld{x}=[x_1,x_2]^T$. This function is also known as the banana function because of the shape of its level sets.
