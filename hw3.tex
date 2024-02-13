@@ -124,8 +124,9 @@ than that would cause the limit to become infinite. With $p=1$ the limit is 1.
 In this case $F(x^*)=0$ so $F(x^*)$ is not invertible and the theorem doesn't
 hold.
 \section*{Exercise 9.4}
-Consider Rosenbrock's function: $f(\bld{x})=100(x_2-x_1^2)^2+(1+x_1)^2$, where
-$\bld{x}=[x_1,x_2]^T$. This function is also known as the banana function because of the shape of its level sets.
+Consider Rosenbrock's function: $f(\bld{x})=100(x_2-x_1^2)^2+(1-x_1)^2$, where
+$\bld{x}=[x_1,x_2]^T$. This function is also known as the banana function
+because of the shape of its level sets.
 \begin{enumerate}[label=\alph*.]
 \item Prove that $[1,1]^T$ is the unique global minimizer of $f$ over
 	$\mathbb{R}^2$.
@@ -135,6 +136,20 @@ $\bld{x}=[x_1,x_2]^T$. This function is also known as the banana function becaus
 	$\alpha_k=0.05$ at each iteration.
 \end{enumerate}
 \subsection*{Solution a}
+In this case
+\[
+	\nabla f(\bld{x})=[-400(x_2-x_1^2)x_1+2(x_1-1),200(x_2-x_1^2)]^T.
+\]
+and we can se that the only point that satisfies $\nabla f=0$ is $[1,1]^T$.
+Also we have:
+\[
+	F(x)=\begin{bmatrix}
+		-400x_2 + 1200x_1^2 + 2 & -400x_1 \\
+		-400x_1 & 200
+	\end{bmatrix}
+\]
+and then the matrix $F([1,1]^T)$ is positive definite (I used WolframAlpha to
+compute the eigenvalues) so $[1,1]^T$ is a unique minimizer.
 \subsection*{Solution b}
 \subsection*{Solution c}
 \end{document}
