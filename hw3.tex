@@ -23,7 +23,11 @@ only if $\bld{x}^{(0)}$ is chosen such that
 $\bld{g}^{(0)}=\bld{Q}\bld{x}^{(0)}=\bld{Q}\bld{x}^{(0)}-\bld{b}$ is an
 eigenvector of $\bld{Q}$.
 \subsection*{Solution}
-TODO: CHECK HYPOTHESIS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+($\implies$)
+
+For this part we don't need $\bld{Q}$ to be positive definite, invertible is
+enough.
+
 First we note that $\nabla f(\bld{x})=\bld{Q}\bld{x}-\bld{b}$. And thus
 \[
 \bld{x}^{(1)}=\bld{x}^{(0)}-\alpha_0\nabla
@@ -37,6 +41,32 @@ Then
 	\bld{Q}(\bld{x}^{(0)}-\alpha_0(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\bld{b}\\
 	\bld{Q}(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\frac{1}{\alpha_0}(\bld{Q}\bld{x}^{(0)}-\bld{b}).
 \end{align*}
+($\impliedby$)
+
+For this part we will use the positive definiteness of $\bld{Q}$.
+
+\begin{align*}
+	\bld{Q}(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\lambda(\bld{Q}\bld{x}^{(0)}-\bld{b})\\
+	\bld{Q}(\bld{x}^{(0)}-\frac{1}{\lambda}(\bld{Q}\bld{x}^{(0)}-\bld{b}))&=\bld{b}\\
+	\bld{x}^{(0)}-\frac{1}{\lambda}(\bld{Q}\bld{x}^{(0)}-\bld{b})&=\bld{Q}^{-1}\bld{b}
+\end{align*}
+If we can proof that $\frac{1}{\lambda}$ minimizes
+$\varphi_0(\alpha)=f(\bld{x}^{(0)}-\alpha \nabla f(\bld{x}^{(0)}))$ then the
+left hand side of the last equation is exactly $\bld{x}^{(1)}$ and we are done.
+
+Luckily in this case we know the minimizer, which according to the
+book is
+\[
+	\frac{(\bld{g}^{(0)})^T\bld{g}^{(0)}}{(\bld{g}^{(0)})^T\bld{Q}\bld{g}^{(0)}}
+\]
+Notice that in our case $\bld{g}^{(0)}=\bld{Q}\bld{x}^{(0)}-\bld{b}$ and
+because by hypothesis it is an eigenvector we have:
+\begin{align*}
+	\bld{Q}\bld{g}^{(0)}=\lambda \bld{g}^{(0)}\\
+	(\bld{g}^{(0)})^T\bld{Q}\bld{g}=\lambda (\bld{g}^{(0)})^T\bld{g}\\
+	\frac{1}{\lambda}=\frac{(\bld{g}^{(0)})^T\bld{g}^{(0)}}{(\bld{g}^{(0)})^T\bld{Q}\bld{g}^{(0)}}
+\end{align*}
+so $\frac{1}{\lambda}$ in fact minimizes $\varphi_0(\alpha)$ and we are done.
 \section*{Exercise 8.24}
 Given $f:\mathbb{R}^n\to \mathbb{R}$, consider the general iterative algorithm
 \[
