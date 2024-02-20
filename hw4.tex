@@ -39,5 +39,24 @@ $j=1,\dots,k$ we have:
 	&=0.
 \end{align*}
 \section*{Exercise 10.7}
+\begin{align*}
+	\phi(a)&=\frac{1}{2}(x_0+Da)^TQ(x_0+Da)-(x_0+Da)^Tb\\
+	&=\frac{1}{2}x_0^TQx_0+\frac{1}{2}x_0^TQDa+\frac{1}{2}(Da)^TQx_0+\frac{1}{2}(Da)^TQDa -x_0^Tb-(Da)^Tb\\
+	&=\frac{1}{2}a^TD^TQx_0+\frac{1}{2}a^TD^TQDa-a^TD^Tb+\frac{1}{2}x_0^TQDa + \frac{1}{2}x_0^TQx_0-x_0^Tb\\
+	&=\frac{1}{2}a^TD^TQDa-a^TD^Tb+\frac{1}{2}a^TD^TQx_0+\frac{1}{2}a^TD^TQx_0 + \frac{1}{2}x_0^TQx_0-x_0^Tb\\
+	&=\frac{1}{2}a^TD^TQDa-a^TD^Tb+a^TD^TQx_0+ \frac{1}{2}x_0^TQx_0-x_0^Tb\\
+	&=\frac{1}{2}a^T\tilde{Q}a^T+a^T\tilde{b}+\tilde{c}
+\end{align*}
+Where: $\tilde{Q}=D^TQD$, $\tilde{b}=D^TQx_0-D^Tb$, $\tilde{c}=\frac{1}{2}x_0^TQx_0-x_0^Tb$.
+
+Now we need to prove that $\tilde{Q}$ is positve definite (notice that it is symmetric).
+
+For this if we take $x\in\mathbb{R}^r$ we get that
+\[
+	x^TD^TQDx=(Dx)^TQ(Dx)\geq 0.
+\]
+So $\tilde{Q}$ is definitely positive semi-definite. For $\tilde{Q}$ to be
+positive definite we need to ensure that $Dx\neq 0$. Which is true if $r\leq n$
+but false if $r>n$ (rank-nullity theorem).
 \section*{Exercise 10.10}
 \end{document}
