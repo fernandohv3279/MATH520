@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\newcommand{\bld}[1]{\boldsymbol{#1}}
+
+\begin{document}
+
+\title{MATH520 Homework 3}
+\author{Fernando}
+\date{\today}
+\maketitle
+
+\section*{Exercise 10.1}
+TODO: CHECK LI hypothesis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+We can use induction over $k$. For $k=1$ we have
+\[
+	d^{(1)}=p^{(1)}-\frac{p^{(1)T}Qd^{(0)}}{d^{(0)T}Qd^{(0)}}d^{(0)},
+\]
+and then:
+\begin{align*}
+	d^{(0)T}Qd^{(1)}&=
+	d^{(0)T}Q\left(p^{(1)}-\frac{p^{(1)T}Qd^{(0)}}{d^{(0)T}Qd^{(0)}}d^{(0)}\right)\\
+	&=
+	d^{(0)T}Qp^{(1)}-p^{(1)T}Qd^{(0)} \text{ (by I.H.)}\\
+	&=0.
+\end{align*}
+Now assuming the result is true for $k$ we prove it for $k+1$. For
+$j=1,\dots,k$ we have:
+\begin{align*}
+	d^{(i)T}Qd^{(k+1)}&=
+	d^{(j)T}Q\left(p^{(k+1)}-\sum_{i=0}^k\frac{p^{(k+1)T}Qd^{(i)}}{d^{(i)T}Qd^{(i)}}d^{(i)}\right)\\
+	&=
+	d^{(j)T}Qp^{(k+1)}-p^{(k+1)T}Qd^{(j)} \text{ (by I.H.)}\\
+	&=0.
+\end{align*}
+\section*{Exercise 10.7}
+\section*{Exercise 10.10}
+\end{document}
