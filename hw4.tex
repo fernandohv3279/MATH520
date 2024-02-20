@@ -14,8 +14,23 @@
 
 \section*{Exercise 10.1}
 \subsection*{Part 1: The algorithm is well defined}
-It is enough to prove that $d^{(i)T}Qd^{(i)}\neq 0$ for all $i$.
-We proceed by induction:
+It is enough to prove that $d^{(i)T}Qd^{(i)}\neq 0$ for all $i$. Since $Q\succ
+0$ it is enough to show that $d^{(i)}\neq 0$.
+We proceed by induction. For the base case we have: $d^{(0)}=p^{(0)}$ which is
+clearly not 0. For the induction step if we had:
+\[
+0=d^{(k+1)}=
+\left(p^{(k+1)}-\sum_{i=0}^k\frac{p^{(k+1)T}Qd^{(i)}}{d^{(i)T}Qd^{(i)}}d^{(i)}\right)
+\]
+Then that implies
+\[
+p^{(k+1)}=\sum_{i=0}^k\frac{p^{(k+1)T}Qd^{(i)}}{d^{(i)T}Qd^{(i)}}d^{(i)},
+\]
+or in other words $p^{(k+1)}\in$ span($d^{(0)},\dots,d^{(k)}$), but notice that
+by construction $d^{(i)}\in$ span($p^{(0)},\dots,p^{(i)}$), then $p^{(k+1)}\in$
+span($p^{(0)},\dots,p^{(k)}$) which is a contradiction!
+
+\textbf{conclusion:} $d^{(k+1)}\neq 0$, and that finishes the proof.
 \subsection*{Part 2: $d^{(0)},\dots,d^{(n-1)}$ are Q-conjugate}
 We can use induction over $k$. For $k=1$ we have
 \[
@@ -49,7 +64,7 @@ $j=1,\dots,k$ we have:
 \end{align*}
 Where: $\tilde{Q}=D^TQD$, $\tilde{b}=D^TQx_0-D^Tb$, $\tilde{c}=\frac{1}{2}x_0^TQx_0-x_0^Tb$.
 
-Now we need to prove that $\tilde{Q}$ is positve definite (notice that it is symmetric).
+Now we need to prove that $\tilde{Q}$ is positive definite (notice that it is symmetric).
 
 For this if we take $x\in\mathbb{R}^r$ we get that
 \[
