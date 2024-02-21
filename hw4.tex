@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{enumitem}
+\usepackage{listings}
 \newcommand{\bld}[1]{\boldsymbol{#1}}
 
 \begin{document}
@@ -87,6 +88,104 @@ By comparing terms we get:
 	\end{bmatrix}.
 \]
 \subsection*{Part b}
+\subsubsection*{First attempt}
+\begin{align*}
+	g^{(0)}=&\nabla f([0,0]^T)=-[3,1]^T\\
+	d^{(0)}=&[3,1]^T\\
+	\alpha_0=&-\frac{g^{(0)T}d^{(0)}}
+	{d^{(0)T}Qd^{(0)}}=\frac{10}{58}\\
+	x^{(1)}=&\frac{10}{58}\cdot[3,1]^T=[30/58,10/58]^T\\
+	g^{(1)}=&\nabla f(x^{(1)})=\frac{2}{29}[-1,3]^T\\
+	\beta_0=&\frac{g^{(1)T}Qd^{(0)}}
+	{d^{(0)T}Qd^{(0)}}=\frac{8/29}{58}\\
+	d^{(1)}=&-[-2/29,6/29]^T+\frac{8/29}{58}\cdot[3,1]^T\\
+	    =&[70/841,-170/841]^T\\
+	\alpha_1=&-\frac{g^{(1)T}d^{(1)}}
+	{d^{(1)T}Qd^{(1)}}=\frac{-40/841}{200/24389}=\frac{29}{5}\\
+	x^{(2)}=&[30/58,10/58]^T-\frac{29}{5}[70/841,-170/841]^T\\
+	=&[1/29,39/29]\\
+	g^{(2)}=&[-4/29,12/29]
+\end{align*}
+There is a mistake in the calculation but I can't find it, this computation is
+too tedious.
+\subsubsection*{Second attempt}
+We can solve it with the following python code:
+\begin{lstlisting}
+import numpy as np
+
+Q=np.array([[5,2],[2,1]])
+def grad(vector):
+    return np.matmul(Q,vector)-np.array([[3],[1]])
+
+def cgm():
+    xk=np.array([[0],[0]])
+    gk=grad(xk)
+    print(gk)
+    dk=-1*gk
+    tol=1e-15
+    maxiter=100
+    for k in range(maxiter):
+        print("iter " + str(k))
+        ak=-1*(np.matmul(np.transpose(gk),dk))/\
+        (np.matmul(np.matmul(np.transpose(dk),Q),dk))
+        print("ak")
+        print(ak)
+        xk1=xk+ak*dk
+        print("xk1")
+        print(xk1)
+        gk1=grad(xk1)
+        print("gk1")
+        print(gk1)
+        if(np.linalg.norm(gk1)<tol):
+            print("Found it!")
+            print(xk1)
+            return
+        bk=\
+        (np.matmul(np.matmul(np.transpose(gk1),Q),dk))/\
+        (np.matmul(np.matmul(np.transpose(dk),Q),dk))
+        print("bk")
+        print(bk)
+        dk1=-1*gk1+bk*dk
+        print("dk1")
+        print(dk1)
+        # update stuff
+        xk=xk1
+        gk=gk1
+        dk=dk1
+cgm()
+\end{lstlisting}
+Which produces the following output:
+\begin{lstlisting}
+[[-3]
+ [-1]]
+iter 0
+ak
+[[0.17241379]]
+xk1
+[[0.51724138]
+ [0.17241379]]
+gk1
+[[-0.06896552]
+ [ 0.20689655]]
+bk
+[[0.00475624]]
+dk1
+[[ 0.08323424]
+ [-0.20214031]]
+iter 1
+ak
+[[5.8]]
+xk1
+[[ 1.]
+ [-1.]]
+gk1
+[[8.8817842e-16]
+ [4.4408921e-16]]
+Found it!
+[[ 1.]
+ [-1.]]
+\end{lstlisting}
+So the vector is $[1,-1]^T$ which is found on the second iteration as expected.
 \subsection*{Part c}
 \[
 \nabla f(x)=\begin{bmatrix}
@@ -105,4 +204,5 @@ then
 	-1\\
 	\end{bmatrix}.
 \]
+Which coincides with the previous part.
 \end{document}
