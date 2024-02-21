@@ -74,15 +74,35 @@ So $\tilde{Q}$ is definitely positive semi-definite. For $\tilde{Q}$ to be
 positive definite we need to ensure that $Dx\neq 0$. Which is true if $r\leq n$
 but false if $r>n$ (rank-nullity theorem).
 \section*{Exercise 10.10}
+\subsection*{Part a}
 By comparing terms we get:
 \[
 	f(x)=\frac{1}{2}x^T\begin{bmatrix}
-	5 & \frac{1}{2} \\
-	\frac{1}{2} & 1\\
+	5 & 2 \\
+	2 & 1\\
 	\end{bmatrix}x
 	- x^T\begin{bmatrix}
 	3\\
 	1
-	\end{bmatrix}
+	\end{bmatrix}.
+\]
+\subsection*{Part b}
+\subsection*{Part c}
+\[
+\nabla f(x)=\begin{bmatrix}
+	5 & 2 \\
+	2 & 1\\
+	\end{bmatrix}x
+	- \begin{bmatrix}
+	3\\
+	1
+	\end{bmatrix},
+\]
+then
+\[
+	x=\begin{bmatrix}
+	1\\
+	-1\\
+	\end{bmatrix}.
 \]
 \end{document}
