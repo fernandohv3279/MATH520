@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{listings}
+\newcommand{\bld}[1]{\boldsymbol{#1}}
+
+\begin{document}
+
+\title{MATH520 Exam 1}
+\author{Fernando}
+\date{\today}
+\maketitle
+
+\section*{Problem 1}
+\section*{Problem 2}
+\section*{Problem 3}
+We proceed by induction as suggested by the hint.
+
+For $k=0$ it is clear that $x^{(0)}=0\in\{0\}=\mathcal{V}_0$ and
+$d^{(0)}=-g^{(0)}=b\in \text{span}[b]=\mathcal{V}_1$.
+
+For the induction step we assume that the result is true for $k$ and we have to
+prove that $x^{(k+1)}\in \mathcal{V}_{k+1}$ and $d^{(k+1)}\in
+\mathcal{V}_{k+2}$.
+
+Since
+\[
+x^{(k+1)}=x^{(k)}+\alpha_kd^{(k)}
+\]
+and by I.H. $x^{(k)}\in \mathcal{V}_k$ and $d^{(k)}\in\mathcal{V}_{k+1}$ then
+$x^{(k+1)}\in
+\mathcal{V}_{k+1}$ (Clearly $\mathcal{V}_k\subset\mathcal{V}_{k+1}$).
+
+As for $d^{(k+1)}$ we have
+\[
+d^{(k+1)}=-g^{(k+1)}+\beta_k d^{(k)},
+\]
+since $d^{(k)}\in\mathcal{V}_{k+1}$ by I.H. it is enough to prove that
+$g^{(k+1)}\in\mathcal{V}_{k+2}$ (because
+$\mathcal{V}_{k+1}\subset\mathcal{V}_{k+2}$). To do this notice that
+$x^{(k+1)}$ is a linear combination of the vectors $b,Qb,\dots,Q^{k}b$, then
+\begin{align*}
+g^{(k+1)}=Qx^{(k+1)}-b&=Q\left(\sum_{i=0}^kc_iQ^ib\right) -b\\
+&=\left(\sum_{i=0}^kc_iQ^{i+1}b\right)-b \in
+\text{span}[b,Qb,\dots,Q^{k+1}b]=\mathcal{V}_{k+2},
+\end{align*}
+which concludes the proof.
+\end{document}
