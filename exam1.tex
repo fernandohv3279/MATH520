@@ -71,6 +71,50 @@ So we can say that if $x^*\in\Omega$ is a local minimizer, then $d^T\nabla
 f(x^*)=0$ for all $d$ perpendicular to $x^*$.
 \section*{Problem 2}
 \subsection*{Part a}
+\textbf{Lemma:} Under the conditions of the problem
+\[
+\alpha_k = -\frac{d^{(k)T}g^{(k)}}{d^{(k)T}Qd^{(k)}}
+\]
+\textbf{Proof:}
+
+Let $h(\alpha)\coloneq f(x^{(k)}+\alpha_kd^{(k)})$. Then
+\[
+	h'(\alpha)=d^{(k)T}\nabla f(x^*+\alpha d^{(k)})
+	=d^{(k)T}(Q(x^{(k)}+\alpha d^{(k)})-b).
+\]
+By the definition of $\alpha_k$ it has to satisfy the FONC
+\[
+	h'(\alpha_k)=0,
+\]
+so we get the equation
+\[
+0=d^{(k)T}(Q(x^{(k)}+\alpha_k d^{(k)})-b),
+\]
+and solving for $\alpha_k$ we get
+\[
+	\alpha_k=\frac{d^{(k)T}b-d^{(k)T}Qx^{(k)}}{d^{(k)T}Qd^{(k)}}=-\frac{d^{(k)T}g^{(k)}}{d^{(k)T}Qd^{(k)}},
+\]
+which concludes the proof of the lemma.\\
+\textbf{Now let's do part a.}
+\begin{align*}
+2w_k
+&= 2(V(x^{(k)})-V(x^{(k+1)}))\\
+&= 2(V(x^{(k)})-V(x^{(k+1)}))\\
+&=(x^{(k)}-x^*)^TQ(x^{(k)}-x^*)
+-(x^{(k+1)}-x^*)^TQ(x^{(k+1)}-x^*)\\
+&=x^{(k)T}Qx^{(k)}-x^{(k)T}Qx^*-x^{*T}Qx^{(k)}+x^{*T}Qx^*\\
+&\quad-x^{(k+1)T}Qx^{(k+1)}+x^{(k+1)T}Qx^*+x^{*T}Qx^{(k+1)}-x^{*T}Qx^*\\
+\end{align*}
+replacing $x^{(k+1)}=x^{(k)}+\alpha_k d^{(k)}$ and simplifying we get that
+\begin{align*}
+2w_k&= \alpha_k d^{(k)T}Qx^*+\alpha_k x^{*T}Qd^{(k)}
+-\alpha_k d^{(k)T}Qx^{(k)}-\alpha_k x^{(k)T}Qd^{(k)}\\
+&-\alpha_k^2d^{(k)T}Qd^{(k)}\\
+&=2\alpha_k d^{(k)T}Qx^*-2\alpha_k d^{(k)T}Qx^{(k)}-\alpha_k^2d^{(k)T}Qd^{(k)}\\
+&=-2\alpha_k d^{(k)T}g^{(k)}-\alpha_k^2d^{(k)T}Qd^{(k)}\\
+&=-2\alpha_k d^{(k)T}g^{(k)}-\alpha_k^2d^{(k)T}Qd^{(k)}\\
+&=\frac{(d^{(k)T}g^{(k)})^2}{d^{(k)T}Qd^{(k)}} \text{ (by the previous lemma).}
+\end{align*}
 \subsection*{Part b}
 \subsection*{Part c}
 \subsection*{Part d}
