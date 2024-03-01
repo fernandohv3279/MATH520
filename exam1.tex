@@ -15,7 +15,18 @@
 
 \section*{Problem 1}
 \subsection*{Part a}
-There are no feasible directions because $x+\alpha d$
+There are no feasible directions. This is easy to see geometrically because
+$\Omega$ is a circle so any direction will take us out of the circle. Now let's
+prove this formally by contradiction. Suppose that $d$ is a feasible direction
+at $x^*$, then there exits $\alpha_0>0$ such that $x^*+\alpha d\in\Omega$ for
+all $\alpha \in [0,\alpha_0]$. Notice that
+\begin{align*}
+||x^*+\alpha d||&=1\\
+||x^*||+\alpha^2||d||^2+2\alpha (d\cdot x^*)&=1\\
+\alpha^2||d||^2+2\alpha (d\cdot x^*)&=0,
+\end{align*}
+which is a quadratic equation on $\alpha$ so it has at most 2 solutions, which
+contradicts the fact that $\alpha$ can be any value on $[0,\alpha_0]$.
 \subsection*{Part b}
 \subsection*{Part c}
 \subsection*{Part d}
