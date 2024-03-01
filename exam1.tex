@@ -22,8 +22,8 @@ prove this formally by contradiction. Suppose that $d$ is a feasible direction
 at $x^*$, then there exits $\alpha_0>0$ such that $x^*+\alpha d\in\Omega$ for
 all $\alpha \in [0,\alpha_0]$. Notice that
 \begin{align*}
-||x^*+\alpha d||&=1\\
-||x^*||+\alpha^2||d||^2+2\alpha (d\cdot x^*)&=1\\
+||x^*+\alpha d||^2&=1\\
+||x^*||^2+\alpha^2||d||^2+2\alpha (d\cdot x^*)&=1\\
 \alpha^2||d||^2+2\alpha (d\cdot x^*)&=0,
 \end{align*}
 which is a quadratic equation on $\alpha$ so it has at most 2 solutions, which
@@ -140,7 +140,7 @@ the limit
 \[
 	\lim_{k\to\infty}V(x^{(k+1)})=V(x^{(0)})\lim_{k\to\infty}\prod_{i=0}^k(1-r_i)
 \]
-is convergent because we have a strictly decreasing sequence bounded below (by
+is convergent because we have a decreasing sequence bounded below (by
 0).
 
 \textbf{Case 2:} There is a finite number of positive $r_i$'s. In this case at
