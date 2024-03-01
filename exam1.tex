@@ -161,6 +161,18 @@ so
 taking the limit as $k\to\infty$ and using the fact that
 $\lim_{k\to\infty}V(x^{(k+1)})$ is convergent we get the result.
 \subsection*{Part c}
+From the formula given we have
+\[
+||g^{(k)}||^2\cos^2(\theta_k)=\frac{(d^{(k)T}g^{(k)})^2}{||d^{(k)}||^2}
+\]
+and by Rayleigh's inequality we get
+\[
+||g^{(k)}||^2\cos^2(\theta_k)=\frac{(d^{(k)T}g^{(k)})^2}{||d^{(k)}||^2}
+\leq2\lambda_{\max}(Q)w_k,
+\]
+where $w_k$ was obtained in part a.
+
+Taking the sum on both sides and using part b yields the result.
 \subsection*{Part d}
 \section*{Problem 3}
 We proceed by induction as suggested by the hint.
