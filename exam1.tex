@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
+\usepackage{mathtools}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{enumitem}
@@ -33,6 +34,41 @@ in part a we saw that there are no feasible directions.
 \subsection*{Part c}
 It is not useful, it doesn't eliminate any point.
 \subsection*{Part d}
+If we define
+\[
+g(\theta)\coloneq f(\cos(\theta),\sin(\theta))
+\]
+then by the chain rule we get
+\begin{align*}
+g'(\theta)
+&=Df(\cos(\theta),\sin(\theta))\cdot
+[-\sin(\theta),\cos(\theta)]^T\\
+&=[-\sin(\theta),\cos(\theta)]\cdot
+\nabla f(\cos(\theta),\sin(\theta))
+\end{align*}
+
+Then if $x^*\in\Omega$ is a local minimizer then there is a $\theta^*$ such
+that\\
+$[\cos(\theta^*),\sin(\theta^*)]=x^*$
+and $g'(\theta^*)=0$ (unconstrained FONC).
+
+So
+\begin{align*}
+0=
+g'(\theta^*)
+&=[-\sin(\theta^*),\cos(\theta^*)]\cdot
+\nabla f(\cos(\theta^*),\sin(\theta^*))\\
+&=[-\sin(\theta^*),\cos(\theta^*)]\cdot
+\nabla f(x^*).
+\end{align*}
+Notice that
+$[\cos(\theta^*),\sin(\theta^*)]\cdot[-\sin(\theta^*),\cos(\theta^*)]^T=0$, in
+other words:\\
+$[-\sin(\theta^*),\cos(\theta^*)]^T$ is the perpendicular vector to
+$x^*$.
+
+So we can say that if $x^*\in\Omega$ is a local minimizer, then $d^T\nabla
+f(x^*)=0$ for all $d$ perpendicular to $x^*$.
 \section*{Problem 2}
 \subsection*{Part a}
 \subsection*{Part b}
