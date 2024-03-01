@@ -116,6 +116,50 @@ replacing $x^{(k+1)}=x^{(k)}+\alpha_k d^{(k)}$ and simplifying we get that
 &=\frac{(d^{(k)T}g^{(k)})^2}{d^{(k)T}Qd^{(k)}} \text{ (by the previous lemma).}
 \end{align*}
 \subsection*{Part b}
+Suppose that $x^{(k)}\neq x^*$ and consider
+\[
+r_k=\frac{V(x^{(k)}) -V(x^{(k+1)})}{V(x^{(k)})}
+=\frac{\frac{\left(d^{(k)T}g^{(k)}\right)^2}{d^{(k)T}Qd^{(k)}}}{(x^{(k)}-x^*)^TQ(x^{(k)}-x^*)},
+\]
+notice that $r_k\geq0$ because $Q$ is positive definite, also $r_k\leq 1$ because\\
+$r_k=1-V(x^{(k+1)})/V(x^{(k)})$ and $V\geq 0$, then
+\[
+V(x^{(k+1)})=(1-r_k)V(x^{(k)}).
+\]
+For the case $x^{(k)}=x^*$ the equation above is satisfied for any $r_k$
+because $V(x^{(k)})=V(x^{(k+1)})=0$, so let's pick $r_k=1$ for this case (we
+could have picked any other number with norm at most one). Now we have defined
+$r_k$ properly and we can write
+\[
+V(x^{(k+1)})=\prod_{i=0}^k(1-r_i)V(x^{(0)})=V(x^{(0)})\prod_{i=0}^k(1-r_i).
+\]
+In order to analyse $\lim_{k\to\infty}V(x^{(k+1)})$ we consider two cases.
+
+\textbf{Case 1:} There is an infinite number of positive $r_i$'s. In this case
+the limit
+\[
+	\lim_{k\to\infty}V(x^{(k+1)})=V(x^{(0)})\lim_{k\to\infty}\prod_{i=0}^k(1-r_i)
+\]
+is convergent because we have a strictly decreasing sequence bounded below (by
+0).
+
+\textbf{Case 2:} There is a finite number of positive $r_i$'s. In this case at
+some point all the $r_i$'s become 0 and we are left with a tail of ones in the
+product which again converges.
+
+\textbf{Conclusion:} $\lim_{k\to\infty}V(x^{(k+1)})$ is convergent.\\
+\textbf{Now let's finish part b}
+
+From part a we get
+\[
+V(x^{(k+1)})=V(x^{(0)})-\sum_{i=0}^kw_i,
+\]
+so
+\[
+\sum_{i=0}^kw_i=V(x^{(0)})-V(x^{(k+1)})
+\]
+taking the limit as $k\to\infty$ and using the fact that
+$\lim_{k\to\infty}V(x^{(k+1)})$ is convergent we get the result.
 \subsection*{Part c}
 \subsection*{Part d}
 \section*{Problem 3}
