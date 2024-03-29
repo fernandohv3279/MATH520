@@ -105,7 +105,72 @@ Generalizing this we get
 \end{align*}
 \section*{Problem 2}
 \subsection*{Part a}
+\[
+\begin{aligned}
+\text{minimize}\quad & x_1+2x_2+3x_3+4x_4\\
+\textrm{s.t.} \quad &x_1+x_3=50,x_2+x_4=60\\
+  &x_1+x_2\leq70,x_3+x_4\leq80\\
+  &x_1,x_2,x_3,x_4\geq0\\
+\end{aligned}
+\]
 \subsection*{Part b}
+\[
+\begin{aligned}
+\text{minimize}\quad & x_1+2x_2+3x_3+4x_4\\
+\textrm{s.t.} \quad &x_1+x_3=50,x_2+x_4=60,x_1+x_2+x_5=70,x_3+x_4+x_6=80\\
+  &x_1,x_2,x_3,x_4,x_5,x_6\geq0,\\
+\end{aligned}
+\]
+which is equivalent to
+\[
+\begin{aligned}
+\text{minimize}\quad & c^Tx\\
+\textrm{s.t.} \quad &Ax=b\\
+  &x\geq0,\\
+\end{aligned}
+\]
+with $c=\begin{bmatrix}
+1\\2\\3\\4\\0\\0
+\end{bmatrix}$, $A=\begin{bmatrix}
+1 & 0 & 1 & 0 & 0 & 0\\
+0 & 1 & 0 & 1 & 0 & 0\\
+1 & 1 & 0 & 0 & 1 & 0\\
+0 & 0 & 1 & 1 & 0 & 1
+\end{bmatrix}$, $b=\begin{bmatrix}
+50\\60\\70\\80
+\end{bmatrix}$.
+
+It is easy to check that $A$ has full rank.
 \subsection*{Part c}
+The augmented matrix is
+\[
+A=\begin{bmatrix}
+1 & 0 & 1 & 0 & 0 & 0 & | & 50\\
+0 & 1 & 0 & 1 & 0 & 0 & | & 60\\
+1 & 1 & 0 & 0 & 1 & 0 & | & 70\\
+0 & 0 & 1 & 1 & 0 & 1 & | & 80
+\end{bmatrix}.
+\]
+Notice that the matrix formed by the first 4 columns has rank 3 so we can swap
+columns 4 and 6 to get
+\[
+\begin{bmatrix}
+1 & 0 & 1 & 0 & 0 & 0 & | & 50\\
+0 & 1 & 0 & 0 & 0 & 1 & | & 60\\
+1 & 1 & 0 & 0 & 1 & 0 & | & 70\\
+0 & 0 & 1 & 1 & 0 & 1 & | & 80
+\end{bmatrix}
+\]
+and now the matrix formed by the first 4 columns has rank 4, then row reducing
+we obtain
+\[
+\begin{bmatrix}
+1 & 0 & 0 & 0 &  1 & -1 & | & 10\\
+0 & 1 & 0 & 0 &  0 &  1 & | & 60\\
+0 & 0 & 1 & 0 & -1 &  1 & | & 40\\
+0 & 0 & 0 & 1 &  1 &  0 & | & 40
+\end{bmatrix},
+\]
+which gives us $[x_1,x_2,x_3,x_6,x_5,x_4]=[10,60,40,40,0,0]$.
 \section*{Problem 3}
 \end{document}
