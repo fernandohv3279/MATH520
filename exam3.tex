@@ -1,0 +1,116 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{graphicx}
+% \usepackage{enumitem}
+\usepackage{listings}
+\newcommand{\bld}[1]{\boldsymbol{#1}}
+
+\begin{document}
+
+\title{MATH520 Exam 3}
+\author{Fernando}
+\date{\today}
+\maketitle
+
+\section*{Problem 1}
+\subsection*{Part a}
+\subsection*{Part b}
+\subsection*{Part c}
+\subsection*{Part d}
+\section*{Problem 2}
+\subsection*{Part i}
+\subsection*{Part ii}
+\subsection*{Part iii}
+\subsection*{Part iv}
+\section*{Problem 3}
+\subsection*{Part a}
+Our problem is the following
+\[
+\begin{aligned}
+\text{minimize}\quad & f(x)\\
+\textrm{s.t.} \quad &g(x)\leq 0.\\
+\end{aligned}
+\]
+Where $f(x)=x_1x_2$ and $g(x)=\begin{bmatrix}
+g_1(x)\\
+g_2(x)
+\end{bmatrix}=\begin{bmatrix}
+2-x_1-x_2\\
+x_1-x_2
+\end{bmatrix}$
+
+Since in this problem we only have inequality constraints, the KKT condition
+is:
+\begin{enumerate}[I]
+\item $\mu^*\geq0$ \label{muPositive}
+\item $Df(x^*)+{\mu^*}^TDg(x^*)=0^T$ \label{KKT}
+\item ${\mu^*}^Tg(x^*)=0$ \label{muTg}
+\item $g(x^*)\leq0$ \label{gNegative}
+\end{enumerate}
+\subsection*{Part b}
+Notice that condition \ref{muTg} can be written as
+\begin{equation} \label{cond3reWrite}
+\mu_1g_1 + \mu_2g_2=0.
+\end{equation}
+Because of conditions \ref{muPositive} and \ref{gNegative} each of the
+terms in (\ref{cond3reWrite}) must be 0, so $\mu_ig_i=0$.
+If we suppose $\mu_1=0$ condition \ref{KKT} gives us the following:
+\begin{align*}
+0^T&=Df(x^*)+{\mu^*}^TDg(x^*)\\
+&=[x_2,x_1]+[\mu_1,\mu_2]\begin{bmatrix}
+-1 & -1\\
+1 & -1
+\end{bmatrix}\\
+&=[x_2,x_1]+[0,\mu_2]\begin{bmatrix}
+-1 & -1\\
+1 & -1
+\end{bmatrix}\\
+&=[ x_2+\mu_2, x_1-\mu_2].
+\end{align*}
+Adding these two equations we get
+\[
+x_1+x_2=0,
+\]
+but this is a contradiction with condition \ref{gNegative}, in particular it
+contradicts $g_1(x)=2-x_1-x_2\leq0$. Conclusion: $u_1\neq 0$, so we know that
+for sure $g_1=0$.
+With regards to the other term in (\ref{cond3reWrite}), if we assume
+$g_2(x)=0$, this means $x_1=x_2$ and replacing this in \ref{KKT} we
+get
+\begin{align*}
+0^T&=Df(x^*)+{\mu^*}^TDg(x^*)\\
+&=[x_1,x_1]+[\mu_1,\mu_2]\begin{bmatrix}
+-1 & -1\\
+1 & -1
+\end{bmatrix}\\
+&=[ x_1-\mu_1+\mu_2, x_1-\mu_1-\mu_2].
+\end{align*}
+Again adding these equations we get $\mu_1=x_1$, and then $\mu_2=0$.
+Conclusion: we know that for sure $\mu_2=0$. Once again using
+\ref{KKT} we get:
+\begin{align*}
+0^T&=Df(x^*)+{\mu^*}^TDg(x^*)\\
+&=[x_1,x_2]+[\mu_1,\mu_2]\begin{bmatrix}
+-1 & -1\\
+1 & -1
+\end{bmatrix}\\
+&=[x_1,x_2]+[\mu_1,0]\begin{bmatrix}
+-1 & -1\\
+1 & -1
+\end{bmatrix}\\
+&=[ x_1-\mu_1, x_2-\mu_1].
+\end{align*}
+From where $x_1=x_2=\mu_1$ and using the fact that $g_1=0$ we get that
+$x_1=x_2=\mu_1=1$.
+
+So the only point that satisfies the KKT condition is ${x^*}^T=[1,1]$, with the
+KKT multiplier vector ${\mu^*}^T=[1,0]$.
+
+Since $\nabla g_1(x^*)=\begin{bmatrix} -1\\-1\end{bmatrix}$ and $\nabla
+g_2(x^*)=\begin{bmatrix} 1\\-1\end{bmatrix}$ are L.I. $x^*$ is regular.
+\subsection*{Part c}
+\subsection*{Part d}
+\end{document}
