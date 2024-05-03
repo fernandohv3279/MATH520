@@ -112,5 +112,64 @@ KKT multiplier vector ${\mu^*}^T=[1,0]$.
 Since $\nabla g_1(x^*)=\begin{bmatrix} -1\\-1\end{bmatrix}$ and $\nabla
 g_2(x^*)=\begin{bmatrix} 1\\-1\end{bmatrix}$ are L.I. $x^*$ is regular.
 \subsection*{Part c}
+First we need to determine $T(x^*)$. Notice that both constrains are active so
+\[
+	T(x^*)=\{y\in \mathbb{R}^2:Dg(x^*)y=0\}
+\]
+and since $Dg(x^*)$ is invertible we have
+\[
+	T(x^*)=\{0\},
+\]
+so the SONC is trivially satisfied.
 \subsection*{Part d}
+In this case we have
+\[
+	\tilde{J}(x^*,\mu^*)=\{1\},
+\]
+and thus
+\[
+	\tilde{T}(x^*,\mu^*)=\{y:[-1,-1]y=0\}=\text{span}([1,-1]^T).
+\]
+Now we compute $F(x)$ and see that
+\[
+	F(x)=\begin{bmatrix}
+		0 & 1\\	
+		1 & 0
+	\end{bmatrix},
+\]
+also notice that because $g_1$ and $g_2$ are linear in each variable we have
+\[
+G_1(x)=G_2(x)=\begin{bmatrix}
+	0 & 0\\	
+	0 & 0
+\end{bmatrix},
+\]
+then
+\[
+L(x,\mu)= F(x)=\begin{bmatrix}
+		0 & 1\\	
+		1 & 0
+	\end{bmatrix},
+\]
+and notice that $[1,-1]^T\in\text{span}([1,-1]^T)=\tilde{T}(x^*,\mu^*)$, and
+\[
+	[1,-1]L(x^*,\mu^*)\begin{bmatrix}
+1\\	
+-1
+\end{bmatrix}=
+[1,-1]
+\begin{bmatrix}
+0 & 1\\	
+1 & 0
+\end{bmatrix}
+\begin{bmatrix}
+1\\	
+-1
+\end{bmatrix}=
+[-1,1]\begin{bmatrix}
+1\\	
+-1
+\end{bmatrix}=-2<0.
+\]
+So no point in part c satisfies the SOSC.
 \end{document}
