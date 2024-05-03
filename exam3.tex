@@ -42,7 +42,45 @@ Clearly the primal has a feasible solution and the dual does not.
 This is impossible by the duality theorem (if one has an optimal feasible
 solution, then so does the other).
 \subsection*{Part iii}
+This is impossible by the duality theorem (if one has an optimal feasible
+solution, then so does the other).
 \subsection*{Part iv}
+This is possible. An example is given in the book. Take as the primal
+\[
+\begin{aligned}
+	\text{minimize}\quad & [1,-2]x\\
+\textrm{s.t.} \quad &\begin{bmatrix}
+	1 & -1\\
+	-1 & 1
+\end{bmatrix}x\geq \begin{bmatrix}
+2\\	
+-1
+\end{bmatrix}.\\
+	      \quad &x\geq 0.\\
+\end{aligned}
+\]
+Which has no feasible solution because it requires $[1,-1]x\geq 2$ and
+$[1,-1]x\leq 1$. The dual of this problem is
+\[
+\begin{aligned}
+	\text{maximize}\quad & \lambda^T\begin{bmatrix}
+	2\\	
+	-1
+	\end{bmatrix}\\
+\textrm{s.t.} \quad &\lambda^T\begin{bmatrix}
+	1 & -1\\
+	-1 & 1
+	\end{bmatrix}\leq [1,-2]\\
+	      \quad &\lambda\geq 0.\\
+\end{aligned}
+\]
+Which again has no feasible solution because it requires $\lambda^T\begin{bmatrix}
+1\\
+-1
+\end{bmatrix}\leq 1$ and $\lambda^T\begin{bmatrix}
+1\\
+-1
+\end{bmatrix}\geq 2$.
 \section*{Problem 3}
 \subsection*{Part a}
 Our problem is the following
