@@ -16,10 +16,26 @@
 \maketitle
 
 \section*{Problem 1}
-\subsection*{Part a}
 \subsection*{Part b}
+Since they say the tableau is canonical and we don't know the values of ``?"
+the only way we can ensure this is if the basis is $[a_3,a_7,a_2]$, which forces $\beta=0$.
+\subsection*{Part a}
+From the previous part we know that the basis is $[a_3,a_7,a_2]$, and since the
+tableau is canonical we know that the rightmost column corresponds to the
+values of the basic variables so in particular $x_7=\alpha$. Since the lower
+right corner represents the value of the objective function and we are on phase
+I, then it means that all of our artificial variables are 0, in particular
+$x_7=0$. So $\alpha=0$.
 \subsection*{Part c}
+Again, since the tableau is canonical and the lower right corner is 0 it means
+that the artificial problem is solved, so the lowermost row must be non
+negative. In particular $\gamma\geq0$, so $\gamma=2$.
 \subsection*{Part d}
+Since the artificial problem is solved, proposition 16.1 tells us that we can
+solve the original problem, that means we should be able to bring $a_4$ into
+the basis, but if we pivot around $(1,4)$ notice that in the lower right corner
+we would end up with $-6\delta$, since this should still be 0 we conclude that
+$\delta=0$.
 \section*{Problem 2}
 \subsection*{Part i}
 This is possible. An example is given in the book. Take as the primal
